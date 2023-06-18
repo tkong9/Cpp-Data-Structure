@@ -41,6 +41,8 @@ int main()
     cout << "Number of rooms: " << number_of_rooms << endl;
 
     const double price_per_room = 30.0;
+//    price_per_room = 40.0; // this will cause a compiler error
+
     cout << "Price per room: $" << price_per_room << endl;
 
     const double sales_tax = 0.06;
