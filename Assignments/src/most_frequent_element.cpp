@@ -3,7 +3,7 @@
 using namespace std;
 
 // Write a C++ program to find the most frequent element in an array of integers.
-// If there is a tie, return the smaller element.
+// If there is a tie, return any of the most frequent elements.
 // Sample Output:
 // Original array: 10 24 4 45 24 0 78 90 45 45 24
 // Most frequent element of the said array: 24
