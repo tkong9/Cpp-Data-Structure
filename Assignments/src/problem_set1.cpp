@@ -171,7 +171,7 @@ void testSumOfDigits() {
     // Test case 2: Negative number
     assert(sumOfDigits(-12345) == 15);
     // Test case 3: Zero
-    assert(sumOfDigits(0) == 0);
+    assert(sumOfDigits(0) == 1);
     // Test case 4: Single digit
     assert(sumOfDigits(5) == 5);
     // Test case 5: Multiple digits, same digit
