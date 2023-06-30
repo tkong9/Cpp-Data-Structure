@@ -99,20 +99,6 @@ int triangle_number(int n) {
     return 0;
 }
 
-// /**
-//  * Binary search algorithm to find the index of a target element in a sorted vector.
-//  *
-//  * @param arr The sorted vector to search in.
-//  * @param target The element to search for.
-//  * @return The index of the target element if found, -1 otherwise.
-//  */
-// int binary_search(const std::vector<int>& arr, int target) {
-//     // TODO: Implement the binary search algorithm recursively here
-
-
-//     return -1;  // Target element not found in the vector
-// }
-
 /**
  * A recursive implementation of binary search.
  *
