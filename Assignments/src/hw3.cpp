@@ -95,31 +95,31 @@ void insertion_sort(std::vector<int>& arr) {
 */
 
 /**
- * This function merges two sub-vectors of arr[].
- * First sub-vector is arr[l..m]
- * Second sub-vector is arr[m+1..r]
+ * @brief Merges two sorted lists into a single sorted list.
+ * 
+ * @param left_list The first sorted list.
+ * @param right_list The second sorted list.
+ * @return A new list that contains all elements from left_list and right_list, in sorted order.
  *
- * @param arr The main vector.
- * @param l The starting index of the first sub-vector.
- * @param m The ending index of the first sub-vector.
- * @param r The ending index of the second sub-vector.
+ * This function assumes that left_list and right_list are sorted and merges them
+ * into a single sorted list in linear time.
  */
-void merge(std::vector<int>& arr, int l, int m, int r) {
+std::vector<int> merge(const std::vector<int>& left_list, const std::vector<int>& right_list) {
     // TODO: Implement merge function
-
 }
 
 /**
- * This function implements the merge sort algorithm.
- * It sorts the input vector in ascending order.
+ * @brief Performs the merge sort algorithm on a list.
  *
- * @param arr The vector to be sorted.
- * @param l The leftmost index of the sub-array of arr to be sorted.
- * @param r The rightmost index of the sub-array of arr to be sorted.
+ * @param lst The list of unordered elements.
+ * @return A new list that contains all elements from lst, in sorted order.
+ *
+ * Merge sort is a divide-and-conquer algorithm that works by recursively breaking down
+ * a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly.
+ * The solutions to the sub-problems are then combined to give a solution to the original problem.
  */
-void merge_sort(std::vector<int>& arr, int l, int r) {
+std::vector<int> merge_sort(const std::vector<int>& lst) {
     // TODO: Implement merge sort
-
 }
 
 // Test cases-------------------------------------------------------------------
@@ -262,38 +262,31 @@ void test_merge_sort() {
     std::cout << "Testing Merge Sort...";
     // Test case 1: Positive numbers
     std::vector<int> numbers1 = {3, 2, 5, 7, 4, 8, 4, 1};
-    merge_sort(numbers1, 0, numbers1.size() - 1);
-    assert(numbers1 == std::vector<int>({1, 2, 3, 4, 4, 5, 7, 8}));
+    assert(merge_sort(numbers1) == std::vector<int>({1, 2, 3, 4, 4, 5, 7, 8}));
 
     // Test case 2: Negative numbers
     std::vector<int> numbers2 = {-3, -2, -5, -7, -4, -8, -4, -1};
-    merge_sort(numbers2, 0, numbers2.size() - 1);
-    assert(numbers2 == std::vector<int>({-8, -7, -5, -4, -4, -3, -2, -1}));
+    assert(merge_sort(numbers2) == std::vector<int>({-8, -7, -5, -4, -4, -3, -2, -1}));
 
     // Test case 3: Positive and negative numbers
     std::vector<int> numbers3 = {-3, 2, -5, 7, -4, 8, -4, 1};
-    merge_sort(numbers3, 0, numbers3.size() - 1);
-    assert(numbers3 == std::vector<int>({-5, -4, -4, -3, 1, 2, 7, 8}));
+    assert(merge_sort(numbers3) == std::vector<int>({-5, -4, -4, -3, 1, 2, 7, 8}));
 
     // Test case 4: Empty vector
     std::vector<int> numbers4 = {};
-    merge_sort(numbers4, 0, numbers4.size() - 1);
-    assert(numbers4 == std::vector<int>({}));
+    assert(merge_sort(numbers4) == std::vector<int>({}));
 
     // Test case 5: Vector with one element
     std::vector<int> numbers5 = {1};
-    merge_sort(numbers5, 0, numbers5.size() - 1);
-    assert(numbers5 == std::vector<int>({1}));
+    assert(merge_sort(numbers5) == std::vector<int>({1}));
 
     // Test case 6: Vector with two elements
     std::vector<int> numbers6 = {2, 1};
-    merge_sort(numbers6, 0, numbers6.size() - 1);
-    assert(numbers6 == std::vector<int>({1, 2}));
+    assert(merge_sort(numbers6) == std::vector<int>({1, 2}));
 
     // Test case 7: Vector with repeated elements
     std::vector<int> numbers7 = {2, 1, 2, 1, 2, 1, 2, 1};
-    merge_sort(numbers7, 0, numbers7.size() - 1);
-    assert(numbers7 == std::vector<int>({1, 1, 1, 1, 2, 2, 2, 2}));
+    assert(merge_sort(numbers7) == std::vector<int>({1, 1, 1, 1, 2, 2, 2, 2}));
 
     std::cout << "Passed\n";
 }
