@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <stdexcept> // For std::runtime_error
+#include <cassert>
 
 using namespace std;
 
