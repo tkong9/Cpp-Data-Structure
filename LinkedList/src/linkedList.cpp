@@ -6,6 +6,10 @@ public:
     Node* next; 
 
     Node(int d) : data(d), next(nullptr) {}
+    // Node(int d) {
+    //     data = d;
+    //     next = nullptr;
+    // }
 };
 
 class LinkedList {
@@ -14,6 +18,9 @@ private:
 
 public:
     LinkedList() : head(nullptr) {}
+    // LinkedList() {
+    //     head = nullptr;
+    // }
 
     /**
      * Append a new node to the end of the list
@@ -22,6 +29,10 @@ public:
      */
     void append(int data) {
         // TODO: Implement this function.
+        // 1. check whether the list is empty
+        // 2. if empty, create a new node and set it as head
+        
+        // 3. if head is not null, traverse the list until the last node
     }
 
     /**
@@ -44,8 +55,8 @@ public:
     void printList() {
         Node* temp = head;
         while (temp != nullptr) {
-            std::cout << temp->data << " ";
-            temp = temp->next;
+            std::cout << temp->data << " "; // same as std::cout << (*temp).data << " ";
+            temp = temp->next; // same as temp = (*temp).next;
         }
         std::cout << std::endl;
     }
