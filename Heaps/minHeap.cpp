@@ -1,48 +1,39 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <algorithm>
 #include <climits>
+#include <algorithm>
 
-/*
-Max Heap is a data structure that supports the following operations:
+/**
+Min Heap is a data structure that supports the following operations:
     - insert: insert an element into the heap
-    - extract_max: extract the maximum element from the heap
-
+    - extract_min: extract the minimum element from the heap
+    
 The heap is represented as an array. The root of the heap is at index 1.
 The left child of the node at index i is at index 2i.
 The right child of the node at index i is at index 2i + 1.
 
-The heap property is that the value of a node is greater than or equal to
+The heap property is that the value of a node is less than or equal to
 the values of its children.
 
-For example, the following array represents a max heap:
-    [0, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-
-The following array does not represent a max heap:
-    [0, 10, 9, 8, 7, 6, 5, 4, 3, 2, 11]
-
-
+For example, the following array represents a min heap:
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    
 Time Complexity:
     - insert: O(log n)
-    - extract_max: O(log n)
-
+    - extract_min: O(log n)
+    
 Space Complexity:
     - O(n)
 */
 
 /**
- * @class MaxHeap
- * @brief Implements a max heap data structure.
+ * @class MinHeap
+ * @brief Implements a min heap data structure.
  */
-class MaxHeap {
+class MinHeap {
 private:
     std::vector<int> heap;
-
-    // Private functions are helper functions for the public functions.
-    // They are not meant to be called directly by the user.
-    // They are just used to make the code more modular.
-    // If you don't want to use helper functions, you may delete private functions.
 
     /**
      * @brief Returns the parent index of a given node.
@@ -100,7 +91,7 @@ public:
     /**
      * @brief Default constructor, initializes the heap with a dummy element.
      */
-    MaxHeap() {
+    MinHeap() {
         // TODO: Implement this function.
     }
 
@@ -113,52 +104,52 @@ public:
     }
 
     /**
-     * @brief Extracts the maximum element from the heap.
-     * @return The maximum element from the heap or INT_MIN if the heap is empty.
+     * @brief Extracts the minimum element from the heap.
+     * @return The minimum element from the heap or INT_MAX if the heap is empty.
      */
-    int extractMax() {
+    int extractMin() {
         // TODO: Implement this function.
     }
 };
 
 /**
- * @brief Tests basic functionality of the MaxHeap class.
+ * @brief Tests basic functionality of the MinHeap class.
  */
-void testMaxHeapSimple() {
-    std::cout << "Testing simple Max Heap..." << std::endl;
-    MaxHeap heap;
+void testMinHeapSimple() {
+    std::cout << "Testing simple MinHeap..." << std::endl;
+    MinHeap heap;
 
     heap.insert(10);
-    assert(heap.extractMax() == 10);
+    assert(heap.extractMin() == 10);
 
     heap.insert(20);
     heap.insert(10);
-    assert(heap.extractMax() == 20);
-    assert(heap.extractMax() == 10);
-    assert(heap.extractMax() == INT_MIN);  // Empty heap
+    assert(heap.extractMin() == 10);
+    assert(heap.extractMin() == 20);
+    assert(heap.extractMin() == INT_MAX);  // Empty heap
 
     std::cout << "Passed!" << std::endl;
 }
 
 /**
- * @brief Tests complex scenarios and edge cases of the MaxHeap class.
+ * @brief Tests complex scenarios and edge cases of the MinHeap class.
  */
-void testMaxHeapComplex() {
-    std::cout << "Testing complex Max Heap..." << std::endl;
-    MaxHeap heap;
+void testMinHeapComplex() {
+    std::cout << "Testing complex MinHeap..." << std::endl;
+    MinHeap heap;
 
-    assert(heap.extractMax() == INT_MIN);
+    assert(heap.extractMin() == INT_MAX);
 
     heap.insert(5);
-    assert(heap.extractMax() == 5);
-    assert(heap.extractMax() == INT_MIN);
+    assert(heap.extractMin() == 5);
+    assert(heap.extractMin() == INT_MAX);
 
-    for (int i = 1; i <= 10; ++i) {
+    for (int i = 10; i >= 1; --i) {
         heap.insert(i);
     }
 
-    for (int i = 10; i >= 1; --i) {
-        assert(heap.extractMax() == i);
+    for (int i = 1; i <= 10; ++i) {
+        assert(heap.extractMin() == i);
     }
 
     heap.insert(5);
@@ -166,37 +157,37 @@ void testMaxHeapComplex() {
     heap.insert(3);
     heap.insert(3);
 
-    assert(heap.extractMax() == 5);
-    assert(heap.extractMax() == 5);
-    assert(heap.extractMax() == 3);
-    assert(heap.extractMax() == 3);
-    assert(heap.extractMax() == INT_MIN);
+    assert(heap.extractMin() == 3);
+    assert(heap.extractMin() == 3);
+    assert(heap.extractMin() == 5);
+    assert(heap.extractMin() == 5);
+    assert(heap.extractMin() == INT_MAX);
 
     heap.insert(-5);
     heap.insert(-3);
     heap.insert(-7);
 
-    assert(heap.extractMax() == -3);
-    assert(heap.extractMax() == -5);
-    assert(heap.extractMax() == -7);
-    assert(heap.extractMax() == INT_MIN);
+    assert(heap.extractMin() == -7);
+    assert(heap.extractMin() == -5);
+    assert(heap.extractMin() == -3);
+    assert(heap.extractMin() == INT_MAX);
 
     heap.insert(-5);
     heap.insert(3);
     heap.insert(-7);
     heap.insert(6);
 
-    assert(heap.extractMax() == 6);
-    assert(heap.extractMax() == 3);
-    assert(heap.extractMax() == -5);
-    assert(heap.extractMax() == -7);
-    assert(heap.extractMax() == INT_MIN);
+    assert(heap.extractMin() == -7);
+    assert(heap.extractMin() == -5);
+    assert(heap.extractMin() == 3);
+    assert(heap.extractMin() == 6);
+    assert(heap.extractMin() == INT_MAX);
     
     std::cout << "Passed!" << std::endl;
 }
 
 int main() {
-    testMaxHeapSimple();
-    testMaxHeapComplex();
+    testMinHeapSimple();
+    testMinHeapComplex();
     return 0;
 }
