@@ -101,7 +101,7 @@ public:
      * @brief Default constructor, initializes the heap with a dummy element.
      */
     MaxHeap() {
-        // TODO: Implement this function.
+        heap.push_back(0);
     }
 
     /**
